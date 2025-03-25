@@ -1,10 +1,10 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets_deta.dart';
 import 'package:bookly_app/feature/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-import 'package:get/utils.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -17,7 +17,11 @@ class _SplashViewBodyState extends State<SplashViewBody> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      return Get.to(const HomeView(), transition: Transition.fade);
+      return Get.to(
+        const HomeView(),
+        transition: Transition.fade,
+        duration: kTransetionDuration,
+      );
     });
     super.initState();
   }
