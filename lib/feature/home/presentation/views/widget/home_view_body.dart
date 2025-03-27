@@ -1,8 +1,8 @@
 import 'package:bookly_app/core/constant/style.dart';
+import 'package:bookly_app/core/utils/assets_deta.dart';
 import 'package:bookly_app/feature/home/presentation/views/widget/custom_app_bar.dart';
 import 'package:bookly_app/feature/home/presentation/views/widget/featured_book_list_view.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class HomeViewBody extends StatelessWidget {
   const HomeViewBody({super.key});
@@ -19,7 +19,10 @@ class HomeViewBody extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Text("Best Seller", style: Styles.textStyle18),
           ),
-          BestSellerLsitViewItem(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30),
+            child: BestSellerLsitViewItem(),
+          ),
         ],
       ),
     );
@@ -31,35 +34,41 @@ class BestSellerLsitViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
-          child: Image.asset("assets/images/Book 3 Hightligh.png"),
-        ),
-        // Gap(30),
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          // mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Text(
-              "Harry Potter\nand the Goblet of Fire",
-              style: Styles.textStyle18,
+    return SizedBox(
+      height: 150,
+      child: Row(
+        children: [
+          AspectRatio(
+            aspectRatio: 2.5 / 4,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                color: Colors.red,
+                image: const DecorationImage(
+                  image: AssetImage(AssetsDeta.testImage),
+                  fit: BoxFit.fill,
+                ),
+              ),
             ),
-            Text("J.K. Rowling", style: Styles.textStyle14),
-            // Text("Best Seller", style: Styles.textStyle14),
-            Row(
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: Column(
               children: [
-                Text("19.99 €", style: Styles.textStyle18),
-                Gap(50),
-                Icon(Icons.star, color: Colors.amberAccent),
-                Text("4.5", style: Styles.textStyle18),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * .4,
+                  child: const Text(
+                    "Harry Potter\nand the Goblet of Fire",
+                    style: Styles.textStyle20,
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                  ),
+                ),
               ],
             ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
