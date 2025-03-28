@@ -74,6 +74,8 @@ class BookRating extends StatelessWidget {
     return Row(
       children: [
         const Icon(Icons.star, color: Colors.amberAccent),
+        const Gap(5),
+
         const Text("4.8", style: Styles.textStyle16),
         const Gap(5),
         Text(
