@@ -1,3 +1,6 @@
+import 'package:bookly_app/core/constant/style.dart';
+import 'package:bookly_app/feature/home/presentation/views/widget/best_seller_list_view_item.dart';
+import 'package:bookly_app/feature/home/presentation/views/widget/book_rating.dart';
 import 'package:bookly_app/feature/home/presentation/views/widget/custom_list_view_item.dart';
 import 'package:bookly_app/feature/home/presentation/widget_books/custom_book_details_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +24,13 @@ class BookDetailsViewBody extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: const CustomListViewItem(),
               ),
+              const Gap(30),
+              const Text("The Jungle Book", style: Styles.textStyle30),
+              const Gap(10),
+              const Text("Rudyard Kilping", style: Styles.textStyle16),
+              const Gap(10),
+              // ignore: prefer_const_constructors
+              BookRating(mainAxisAlignment: MainAxisAlignment.center),
             ],
           ),
         ),

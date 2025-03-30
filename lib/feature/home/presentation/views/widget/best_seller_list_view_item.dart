@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/constant/style.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets_deta.dart';
+import 'package:bookly_app/feature/home/presentation/views/widget/book_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
@@ -73,27 +74,6 @@ class BestSellerLsitViewItem extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-}
-
-class BookRating extends StatelessWidget {
-  const BookRating({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Icon(Icons.star, color: Colors.amberAccent),
-        const Gap(5),
-
-        const Text("4.8", style: Styles.textStyle16),
-        const Gap(5),
-        Text(
-          "(2390)",
-          style: Styles.textStyle14.copyWith(color: const Color(0xff707070)),
-        ),
-      ],
     );
   }
 }
