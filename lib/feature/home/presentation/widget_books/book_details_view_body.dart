@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/constant/style.dart';
 import 'package:bookly_app/feature/home/presentation/views/widget/book_rating.dart';
 import 'package:bookly_app/feature/home/presentation/views/widget/custom_list_view_item.dart';
+import 'package:bookly_app/feature/home/presentation/views/widget/featured_book_list_view.dart';
 import 'package:bookly_app/feature/home/presentation/widget_books/books_action.dart';
 import 'package:bookly_app/feature/home/presentation/widget_books/custom_book_details_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -13,14 +14,16 @@ class BookDetailsViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+        body: SingleChildScrollView(
           child: Column(
             children: [
-              const CustomBookDetailsAppBar(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: CustomBookDetailsAppBar(),
+              ),
               const Gap(50),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.35,
+                height: MediaQuery.of(context).size.height * 0.33,
                 width: MediaQuery.of(context).size.width * 0.5,
                 child: const CustomListViewItem(),
               ),
@@ -32,7 +35,20 @@ class BookDetailsViewBody extends StatelessWidget {
               // ignore: prefer_const_constructors
               BookRating(mainAxisAlignment: MainAxisAlignment.center),
               const Gap(40),
-              const BooksAction(),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
+                child: BooksAction(),
+              ),
+              const Gap(40),
+              const Align(
+                alignment: Alignment.bottomLeft,
+                child: Text("Rudyard Kilping", style: Styles.textStyle18),
+              ),
+              const Gap(20),
+              FeatureBookListView(
+                width: MediaQuery.of(context).size.width * 0.25,
+                height: MediaQuery.of(context).size.height * 0.15,
+              ),
             ],
           ),
         ),
