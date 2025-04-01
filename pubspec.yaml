@@ -30,6 +30,8 @@ environment:
 dependencies:
   animated_text_kit: ^4.2.3
   cupertino_icons: ^1.0.8
+  dartz: ^0.10.1
+  dio: ^5.8.0+1
   flutter:
     sdk: flutter
   gap: ^3.0.1
