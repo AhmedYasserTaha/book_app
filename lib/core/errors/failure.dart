@@ -22,7 +22,9 @@ class ServerFailure extends Failure {
         return ServerFailure("Bad certificate error");
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
-            dioError.response?.statusCode ?? 0, dioError.response?.data);
+          dioError.response?.statusCode ?? 0,
+          dioError.response?.data,
+        );
       case DioExceptionType.cancel:
         return ServerFailure("Request was cancelled");
       case DioExceptionType.connectionError:
@@ -36,7 +38,8 @@ class ServerFailure extends Failure {
       // ignore: unreachable_switch_default
       default:
         return ServerFailure(
-            "Oops! There was an error, please try again later!");
+          "Oops! There was an error, please try again later!",
+        );
     }
   }
 
@@ -49,7 +52,8 @@ class ServerFailure extends Failure {
       return ServerFailure(badResponse['error']?['message'] ?? "Unknown error");
     } else if (statusCode == 404) {
       return ServerFailure(
-          "Requested resource not found, please try again later!");
+        "Requested resource not found, please try again later!",
+      );
     } else if (statusCode == 500) {
       return ServerFailure("Internal Server Error, please try again later!");
     } else {
