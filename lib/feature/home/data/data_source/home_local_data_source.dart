@@ -15,8 +15,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
   }
 
   @override
-  Future<List<BooksEntity>> fetchNewsBooks() {
-    // TODO: implement fetchNewsBooks
-    throw UnimplementedError();
+  Future<List<BooksEntity>> fetchNewsBooks() async {
+    var box = Hive.box<BooksEntity>(kNewestBooks);
+    return box.values.toList();
   }
 }
