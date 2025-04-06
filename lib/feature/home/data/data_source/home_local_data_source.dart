@@ -2,12 +2,12 @@ import 'package:bookly_app/core/constant/constants.dart';
 import 'package:bookly_app/feature/home/domain/entities/books_entitie.dart';
 import 'package:hive_flutter/adapters.dart';
 
-abstract class HomeRemoteDataSource {
+abstract class HomeLocalDataSource {
   Future<List<BooksEntity>> fetchFteaturedBooks();
   Future<List<BooksEntity>> fetchNewsBooks();
 }
 
-class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
+class HomeLocaleDataSourceImpl extends HomeLocalDataSource {
   @override
   Future<List<BooksEntity>> fetchFteaturedBooks() async {
     var box = Hive.box<BooksEntity>(kFeaturedBooks);
