@@ -6,9 +6,17 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
 
 void main() async {
-  runApp(const BooklyApp());
+  // تأكد من تهيئة Flutter قبل أي عمليات غير متزامنة
+  WidgetsFlutterBinding.ensureInitialized();
+  // تهيئة Hive لـ Flutter
+  await Hive.initFlutter();
+  // تسجيل الـ Adapter الخاص بـ BooksEntity
   Hive.registerAdapter(BooksEntityAdapter());
-  await Hive.openBox(kFeaturedBooks);
+  // فتح الـ Box اللي هتستخدمه
+  await Hive.openBox<BooksEntity>(kFeaturedBooks);
+  await Hive.openBox<BooksEntity>(kNewestBooks);
+  // تشغيل التطبيق بعد التهيئة
+  runApp(const BooklyApp());
 }
 
 class BooklyApp extends StatelessWidget {
