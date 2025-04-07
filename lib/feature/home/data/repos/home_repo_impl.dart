@@ -1,12 +1,13 @@
 import 'package:bookly_app/core/errors/failure.dart';
 import 'package:bookly_app/feature/home/data/data_source/home_local_data_source.dart';
+import 'package:bookly_app/feature/home/data/data_source/home_remote_data_source.dart';
 import 'package:bookly_app/feature/home/domain/entities/books_entitie.dart';
 import 'package:bookly_app/feature/home/domain/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
 class HomeRepoImpl extends HomeRepo {
-  final HomeLocalDataSource homeRemoteDataSource;
+  final HomeRemoteDataSource homeRemoteDataSource;
   final HomeLocalDataSource homeLocalDataSource;
 
   HomeRepoImpl({

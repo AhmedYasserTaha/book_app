@@ -7,10 +7,12 @@ part 'news_books_state.dart';
 
 class NewsBooksCubit extends Cubit<NewsBooksState> {
   NewsBooksCubit(this.fetchFNewsBooksUseCase) : super(NewsBooksInitial());
+
   final FetchFNewsBooksUseCase fetchFNewsBooksUseCase;
 
   Future<void> fetchNewsBooks() async {
     emit(NewsBooksLoading());
+
     var result = await fetchFNewsBooksUseCase.call();
 
     result.fold(
