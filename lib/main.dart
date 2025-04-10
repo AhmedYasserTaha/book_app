@@ -1,6 +1,7 @@
 import 'package:bookly_app/core/constant/constants.dart';
 import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/function/set_up_service_locator.dart';
+import 'package:bookly_app/core/utils/simple_bloc_observer.dart';
 import 'package:bookly_app/feature/home/data/repos/home_repo_impl.dart';
 import 'package:bookly_app/feature/home/domain/entities/books_entitie.dart';
 import 'package:bookly_app/feature/home/domain/usecase/fetch_featrued_book_use_case.dart';
@@ -25,6 +26,8 @@ void main() async {
   await Hive.openBox<BooksEntity>(kFeaturedBooks);
   await Hive.openBox<BooksEntity>(kNewestBooks);
   // تشغيل التطبيق بعد التهيئة
+
+  Bloc.observer = SimpleBlocObserver();
   runApp(const BooklyApp());
 }
 
@@ -41,7 +44,7 @@ class BooklyApp extends StatelessWidget {
           create: (context) {
             return FeatureBooksCubit(
               FetchFeatruedBookUseCase(homeRepo: getIt.get<HomeRepoImpl>()),
-            );
+            )..fetchFteaturedBooks();
           },
         ),
         BlocProvider(

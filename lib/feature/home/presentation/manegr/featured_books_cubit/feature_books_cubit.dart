@@ -20,7 +20,7 @@ class FeatureBooksCubit extends Cubit<FeatureBooksState> {
         emit(FeatureBooksFailure(failure.errMessage));
       },
       (books) {
-        FeatureBooksSuccess(books);
+        emit(FeatureBooksSuccess(books));
       },
     );
   }
